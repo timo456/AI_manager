@@ -6,11 +6,9 @@ from datetime import datetime
 import time
 import re
 
-# 加載指定的環境變數文件
-load_dotenv('s11230017_key.env')
+# 確保從 Streamlit Secrets 中讀取 API 金鑰
+api_key = st.secrets["openai"]["api_key"]
 
-# 確保環境變數中有 API 金鑰
-api_key = os.getenv('OPENAI_API_KEY')
 if not api_key:
     st.error("API 金鑰未設置，請檢查 s11230017.env 文件。")
 else:
